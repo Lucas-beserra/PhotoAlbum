@@ -1,0 +1,24 @@
+@use 'variables'
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: default)
+  box-shadow: $x-axis $y-axis $blur $color
+
+@mixin buttons()
+  position: absolute
+  background-color: variables.$header-color
+  color: black
+  font-weight: 600
+  font-size: 30px
+  padding: 0.3rem 0.4rem
+  cursor: pointer
+  border: 1px double rgba(0, 0, 0, 0.6)
+  border-radius: 5px
+  top: 2rem
+  width: 2.3rem
+  height: 2.3rem
+
+@mixin footerDisplay()
+  display: flex
+  flex-direction: center
+  align-items: center
+  width: 100vw

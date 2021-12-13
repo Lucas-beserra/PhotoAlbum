@@ -1,0 +1,15 @@
+{
+  "name": "photo-album",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack.js src/index.js build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pexels": "^1.3.0"
+  }
+}

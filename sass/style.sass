@@ -1,0 +1,750 @@
+@use 'variables'
+@use 'mixins'
+
+*
+  margin: 0
+  padding: 0
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  font-family: variables.$font-family
+
+html
+  font-size: 16px
+
+body
+  overflow-x: hidden
+
+  /** Layout com 4 colunas **/
+  /** Versão Desktop **/
+  @media screen and (min-width: 1151px)
+
+    header
+      position: fixed
+      display: flex
+      justify-content: space-between
+      max-height: 25vh
+      width: 100vw
+      background: variables.$header-color
+
+      div
+        width: 10rem
+        margin: 0 0 0 4rem
+        display: flex
+        justify-content: center
+
+        span
+          margin: 1rem auto
+          font-size: variables.$font-size
+
+      nav
+
+        button
+          display: none
+
+        ul
+          display: flex
+          justify-content: space-between
+          list-style: none
+          margin: 1rem 4rem
+
+          li
+            margin: auto 1rem
+
+            a
+              color: black
+              text-decoration: variables.$style-links
+              font-size: variables.$font-size
+
+            a:hover
+              font-size: 20px
+
+    main
+      display: grid
+      grid-template-columns: 3fr
+      height: 100%
+      width: 100vw
+      background-color: rgb(255, 255, 224)
+
+      .about-photographs
+        padding: 1.2rem
+        height: 100%
+        display: flex
+        flex-direction: column
+
+        p
+          margin: 5rem 0 -3rem
+          font-size: variables.$font-size
+
+      .modal
+        position: fixed
+        background-color: rgba(255, 255, 224, 0.7)
+        width: 100%
+        height: 100%
+        visibility: hidden
+
+        div
+          height: 100%
+          display: flex
+          justify-content: center
+          align-items: center
+
+      .modal-active
+        visibility: visible
+
+        .img-modal
+          width: 500px
+          margin: 0 auto
+
+        .button-close
+          @include mixins.buttons()
+          right: 5rem
+          padding: 0.2rem 0 0 0.2rem
+
+          img
+            width: 1.7rem
+
+        .span-button-download
+          @include mixins.buttons()
+          right: 7.5rem
+          padding: 0.2rem 0.1rem 0 0.1rem
+
+          img
+            width: 2rem
+
+      .images
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-rows: 1fr 1fr 1fr 1fr
+        margin: 5rem auto
+        padding: 0
+
+        div
+          margin: auto 0 2rem
+          padding: 0
+          font-size: 16px
+          display: flex
+          flex-direction: column
+          align-items: start
+
+          span
+            margin: 1rem auto
+
+            a
+              color: black
+              font-size: 17px
+
+        img
+          border-radius: 5px
+          margin: 0 auto
+          @include mixins.box-shadow(5px, 5px, 8px, black)
+          cursor: pointer
+
+    footer
+      @include mixins.footerDisplay()
+
+      .footer
+        @include mixins.footerDisplay()
+        flex-direction: column
+        background-color: variables.$header-color
+        margin-top: -5rem
+
+        span
+          font-size: variables.$font-size
+          margin: 1.5rem auto 1rem
+          border-bottom: 1px dotted black
+
+          a
+            text-decoration: none
+
+        div
+          @include mixins.footerDisplay()
+          flex-direction: column
+          margin: 1.2rem auto 0
+
+          ul
+            margin: 1rem auto 0
+            display: flex
+            list-style: none
+
+            li
+              margin: 0 0.5rem
+
+              img
+                width: 35px
+
+              img:hover
+                width: 40px
+                margin-bottom: -1rem
+
+  /** Layout com 3 colunas **/
+  /** Versão Tablet/Desktop **/
+  @media screen and (min-width: 880px) and (max-width: 1150px)
+
+    header
+      position: fixed
+      display: flex
+      justify-content: space-between
+      max-height: 25vh
+      width: 100vw
+      background: variables.$header-color
+
+      div
+        width: 10rem
+        margin: 0 0 0 3rem
+        display: flex
+        justify-content: center
+
+        span
+          margin: 1rem auto
+          font-size: variables.$font-size
+
+      nav
+
+        button
+          display: none
+
+        ul
+          display: flex
+          justify-content: space-between
+          list-style: none
+          margin: 1rem 3rem
+
+          li
+            margin: auto 1rem
+
+            a
+              color: black
+              text-decoration: variables.$style-links
+              font-size: variables.$font-size
+
+            a:hover
+              font-size: 20px
+
+    main
+      display: grid
+      grid-template-columns: 2fr
+      height: 100%
+      width: 100vw
+      background-color: rgb(255, 255, 224)
+
+      .modal
+        position: fixed
+        background-color: rgba(255, 255, 224, 0.7)
+        width: 100%
+        height: 100%
+        visibility: hidden
+
+        div
+          height: 100%
+          display: flex
+          justify-content: center
+          align-items: center
+
+      .modal-active
+        visibility: visible
+
+        .img-modal
+          width: 500px
+          margin: 0 auto
+
+        .button-close
+          @include mixins.buttons()
+          top: 1.5rem
+          right: 5rem
+          padding: 0.2rem 0 0 0.2rem
+
+          img
+            width: 1.7rem
+
+        .span-button-download
+          @include mixins.buttons()
+          top: 1.5rem
+          right: 7.5rem
+          padding: 0.2rem 0.1rem 0 0.1rem
+
+          img
+            width: 2rem
+
+      .images
+        display: grid
+        grid-template-columns: 1.5fr 1.5fr 1.5fr
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr
+        margin: 5rem auto
+        padding: 0
+
+        div
+          margin: 0 0 1.5rem
+          font-size: 17px
+          display: flex
+          flex-direction: column
+          align-items: center
+
+          span
+            margin: 1rem auto
+
+            a
+              color: black
+              font-size: 17px
+
+        img
+          border-radius: 5px
+          margin: 0.5rem auto
+          @include mixins.box-shadow(5px, 5px, 8px, black)
+          cursor: pointer
+
+    footer
+      @include mixins.footerDisplay()
+
+      .footer
+        @include mixins.footerDisplay()
+        flex-direction: column
+        background-color: variables.$header-color
+        margin-top: -5rem
+
+        span
+          font-size: 19px
+          margin: 1.5rem auto 1rem
+          border-bottom: 1px dotted black
+
+          a
+            text-decoration: none
+
+          small, p
+            font-size: 17px
+
+        div
+          @include mixins.footerDisplay()
+          flex-direction: column
+          margin: 1.2rem auto 0
+
+          ul
+            margin: 1rem auto 0
+            display: flex
+            list-style: none
+
+            li
+              margin: 0 0.5rem
+
+              img
+                width: 35px
+
+              img:hover
+                width: 40px
+                margin-bottom: -1rem
+
+  /** Layout com 2 colunas **/
+  /** Versão Tablet **/
+  @media screen and (max-width: 879px)
+
+    header
+      position: fixed
+      display: flex
+      justify-content: space-between
+      max-height: 27vh
+      width: 100vw
+      background: variables.$header-color
+
+      div
+        width: 10rem
+        margin: 0 0 0 3rem
+        display: flex
+        justify-content: center
+
+        span
+          margin: 1rem auto
+          font-size: variables.$font-size
+
+      .navbar
+
+        button
+          display: flex
+          margin: 1rem 5rem 1rem 0
+          background: variables.$header-color
+          border: none
+
+          .menu-icon
+            width: 25px
+            border-top: 2px solid black
+
+          .menu-icon::after, .menu-icon::before
+            content: ''
+            display: block
+            width: 25px
+            height: 2px
+            background: black
+            margin-top: 3.5px
+            transition: .3s
+            position: relative
+
+        ul
+          position: absolute
+          width: 25vw
+          height: 0vh
+          top: 3rem
+          right: 2rem
+          background-color: variables.$header-color
+          list-style: none
+          display: flex
+          flex-direction: column
+          align-items: start
+          padding: .5rem 1rem
+          gap: .8rem
+          border-bottom-left-radius: 5px
+          border-bottom-right-radius: 5px
+          transition: .4s
+          visibility: hidden
+          overflow-y: hidden
+
+          a
+            text-decoration: none
+            color: black
+            margin: 0 auto
+
+      .active
+
+        ul
+          height: 22vh
+          visibility: visible
+
+        button
+
+          .menu-icon
+            border-top-color: transparent
+
+          .menu-icon::before
+            transform: rotate(135deg)
+
+          .menu-icon::after
+            transform: rotate(-135deg)
+            top: -5px
+
+    main
+      display: grid
+      grid-template-columns: 2fr
+      height: 100%
+      width: 100vw
+      background-color: rgb(255, 255, 224)
+
+      .about-photographs
+        padding: 1.2rem
+        height: 100%
+        display: flex
+        flex-direction: column
+
+        p
+          margin: 5rem 0 -3rem
+          font-size: variables.$font-size
+
+      .modal
+        position: fixed
+        background-color: rgba(255, 255, 224, 0.7)
+        width: 100%
+        height: 100%
+        visibility: hidden
+
+        div
+          height: 100%
+          display: flex
+          justify-content: center
+          align-items: center
+
+      .modal-active
+        visibility: visible
+
+        .img-modal
+          width: 500px
+          margin: 0 auto
+
+        .button-close
+          @include mixins.buttons()
+          top: 1rem
+          right: 4rem
+          padding: 0.2rem 0 0 0.2rem
+
+          img
+            width: 1.7rem
+
+        .span-button-download
+          @include mixins.buttons()
+          top: 1rem
+          right: 6.5rem
+          padding: 0.2rem 0.1rem 0 0.1rem
+
+          img
+            width: 2rem
+
+      .images
+        display: grid
+        grid-template-columns: 2fr 2fr
+        grid-template-rows: 1fr 1fr 1fr 1fr
+        margin: 5rem auto
+        padding: 0
+
+        div
+          margin: auto 0 2rem
+          font-size: 18px
+          display: flex
+          flex-direction: column
+          align-items: start
+
+          span
+            margin: 1rem auto
+
+            a
+              color: black
+              font-size: 17px
+
+        img
+          border-radius: 5px
+          margin: 0.5rem auto
+          @include mixins.box-shadow(5px, 5px, 8px, black)
+          cursor: pointer
+
+    footer
+      @include mixins.footerDisplay()
+
+      .footer
+        @include mixins.footerDisplay()
+        flex-direction: column
+        background-color: variables.$header-color
+        margin-top: -5rem
+
+        span
+          font-size: 19px
+          margin: 1.5rem auto 1rem
+          border-bottom: 1px dotted black
+
+          a
+            text-decoration: none
+
+          small, p
+            font-size: 17px
+
+        div
+          @include mixins.footerDisplay()
+          flex-direction: column
+          margin: 1.2rem auto 0
+
+          ul
+            margin: 1rem auto 0
+            display: flex
+            list-style: none
+
+            li
+              margin: 0 0.5rem
+
+              img
+                width: 35px
+
+              img:hover
+                width: 40px
+                margin-bottom: -1rem
+
+  /** Layout com 1 coluna **/
+  /** Versão Mobile **/
+  @media screen and (max-width: 602px)
+
+    header
+      position: fixed
+      display: flex
+      justify-content: space-between
+      max-height: 25vh
+      width: 100vw
+      background: variables.$header-color
+
+      div
+        width: 8rem
+        margin: 0 0 0 3rem
+        display: flex
+        justify-content: center
+
+        span
+          margin: 1rem auto
+          font-size: variables.$font-size
+
+      .navbar
+
+        button
+          display: flex
+          margin: 1rem 2rem
+          background: variables.$header-color
+          border: none
+
+          .menu-icon
+            width: 25px
+            border-top: 2px solid black
+
+          .menu-icon::after, .menu-icon::before
+            content: ''
+            display: block
+            width: 25px
+            height: 2px
+            background: black
+            margin-top: 3.5px
+            transition: .3s
+            position: relative
+
+        ul
+          position: absolute
+          width: 25vw
+          height: 0vh
+          top: 3rem
+          right: 2rem
+          background-color: variables.$header-color
+          list-style: none
+          display: flex
+          flex-direction: column
+          align-items: start
+          padding: .5rem 1rem
+          gap: .8rem
+          border-bottom-left-radius: 5px
+          border-bottom-right-radius: 5px
+          transition: .4s
+          visibility: hidden
+          overflow-y: hidden
+
+          a
+            text-decoration: none
+            color: black
+            margin: 0 auto
+
+      .active
+
+        ul
+          height: 22vh
+          visibility: visible
+
+        button
+
+          .menu-icon
+            border-top-color: transparent
+
+          .menu-icon::before
+            transform: rotate(135deg)
+
+          .menu-icon::after
+            transform: rotate(-135deg)
+            top: -5px
+
+    main
+      display: grid
+      grid-template-columns: 2fr
+      height: 100%
+      width: 100vw
+      background-color: rgb(255, 255, 224)
+
+      .about-photographs
+        padding: 1.2rem
+        height: 100%
+        display: flex
+        flex-direction: column
+
+        p
+          margin: 5rem 0 -3rem
+          font-size: variables.$font-size
+
+      .modal
+        position: fixed
+        background-color: rgba(255, 255, 224, 0.7)
+        width: 100%
+        height: 100%
+        visibility: hidden
+
+        div
+          height: 100%
+          display: flex
+          justify-content: center
+          align-items: center
+
+      .modal-active
+        visibility: visible
+
+        .img-modal
+          width: 500px
+          margin: 0 auto
+
+        .button-close
+          @include mixins.buttons()
+          top: 1rem
+          right: 3rem
+          padding: 0.2rem 0 0 0.2rem
+
+          img
+            width: 1.7rem
+
+        .span-button-download
+          @include mixins.buttons()
+          top: 1rem
+          right: 5.5rem
+          padding: 0.2rem 0.1rem 0 0.1rem
+
+          img
+            width: 2rem
+
+      .images
+        display: grid
+        grid-template-columns: 3fr
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr
+        margin: 5rem auto
+        padding: 0
+
+        div
+          margin: auto 0 2rem
+          font-size: 18px
+          display: flex
+          flex-direction: column
+          align-items: start
+
+          span
+            margin: 1rem auto
+
+            a
+              color: black
+              font-size: 17px
+
+        img
+          border-radius: 5px
+          margin: 0.5rem auto
+          @include mixins.box-shadow(5px, 5px, 8px, black)
+          cursor: pointer
+
+    footer
+      @include mixins.footerDisplay()
+
+      .footer
+        @include mixins.footerDisplay()
+        flex-direction: column
+        background-color: variables.$header-color
+        margin-top: -5rem
+
+        span
+          font-size: 19px
+          margin: 1.5rem auto 1rem
+          border-bottom: 1px dotted black
+
+          a
+            text-decoration: none
+
+          small, p
+            font-size: 17px
+
+        div
+          @include mixins.footerDisplay()
+          flex-direction: column
+          margin: 1.2rem auto 0
+
+          ul
+            margin: 1rem auto 0
+            display: flex
+            list-style: none
+
+            li
+              margin: 0 0.5rem
+
+              img
+                width: 35px
+
+              img:hover
+                width: 40px
+                margin-bottom: -1rem
